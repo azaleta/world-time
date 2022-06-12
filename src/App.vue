@@ -2,5 +2,5 @@
 </script>
 
 <template>
-  <Hello name="aabb"/>
+  <Hello name="aabb" />
 </template>

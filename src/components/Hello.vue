@@ -7,6 +7,8 @@ const upperCase = computed(() => props.name.toUpperCase())
 </script>
 
 <template>
-<div text="green 2xl" font-mono>World-time {{upperCase}}</div>
-<div i-carbon-bee text="blue-800 2xl"></div>
+  <div text="green 2xl" font-mono>
+    World-time {{ upperCase }}
+  </div>
+  <div i-carbon-bee text="blue-800 2xl" />
 </template>
