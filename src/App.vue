@@ -2,5 +2,5 @@
 </script>
 
 <template>
-<div>World-time</div>
+  <Hello name="aabb"/>
 </template>
