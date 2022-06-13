@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { zoneSelected } from '~/composables/state'
 </script>
 
 <template>
-  <pre>
-    {{ zoneSelected }}
-  </pre>
+  <div>{{ zoneSelected }}</div>
 </template>

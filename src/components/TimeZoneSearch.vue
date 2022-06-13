@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { addZone, zoneSelected } from '~/composables/state'
-import { searchZone } from '~/composables/timezone'
 import type { TimeZone } from '~/types'
 
 // defineEmits(['addZone'])
