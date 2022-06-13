@@ -1,3 +1,4 @@
+import path from 'path'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite'
@@ -22,4 +23,9 @@ export default defineConfig({
       ],
     }),
   ],
+  resolve: {
+    alias: {
+      '~': path.join(__dirname, 'src/'),
+    },
+  },
 })
