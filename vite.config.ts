@@ -8,11 +8,14 @@ import { presetAttributify, presetIcons, presetUno } from 'unocss'
 
 export default defineConfig({
   plugins: [
-    Vue(),
+    Vue({
+      reactivityTransform: true,
+    }),
     Components(),
     AutoImport({
       imports: [
         'vue',
+        'vue/macros',
       ],
       dirs: [
         './src/composables/',

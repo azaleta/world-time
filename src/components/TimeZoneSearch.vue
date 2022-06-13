@@ -3,17 +3,17 @@ import type { TimeZone } from '~/types'
 
 // defineEmits(['addZone'])
 
-const inputZone = ref('')
+let inputZone = $ref('')
 
 const searchResult = computed(() => {
-  if (inputZone.value.trim() === '')
+  if (inputZone.trim() === '')
     return null
-  return searchZone(inputZone.value)
+  return searchZone(inputZone)
 })
 
 function add(t: TimeZone) {
   addZone(t)
-  inputZone.value = ''
+  inputZone = ''
 }
 </script>
 
