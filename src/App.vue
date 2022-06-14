@@ -3,14 +3,17 @@
 </script>
 
 <template>
-  <div m2 p2 border="~ grey/20">
-    <ActionBar />
-    <TimeSchedular />
+  <div font-mono bg-gray:20 h-screen bg-canvas>
+    <NaviBar />
+    <div m2 p2 border="~ base" bg-base mx8>
+      <ActionBar />
+      <TimeSchedular />
+    </div>
   </div>
 </template>
 
 <style>
-html {
+.dark {
   background: #222;
   color: white;
   color-scheme: dark;

@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div border="b grey/15" p2>
+  <div border="b base">
     <TimeZoneSearch />
   </div>
 </template>
