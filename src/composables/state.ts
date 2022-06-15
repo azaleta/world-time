@@ -4,6 +4,8 @@ const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
 
 const selectedZoneName = useStorage<string[]>('world-time-selected-zones', [])
 
+export const nowTime = useNow({ interval: 10000 })
+
 export const zoneSelected = computed(() => selectedZoneName.value.map(name => getTimeZone(name)))
 if (!selectedZoneName.value.length)
   selectedZoneName.value.push(currentTimeZone)

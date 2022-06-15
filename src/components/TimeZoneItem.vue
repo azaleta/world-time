@@ -14,23 +14,22 @@ const city = $computed(() => {
 
 const offset = $computed(() => timezone.offset > 0 ? `+${timezone.offset}` : timezone.offset)
 
-const nowTime = useNow({ interval: 10000 })
 const dateFormatter = Intl.DateTimeFormat('en-US', {
   timeZone: timezone.name,
   hour: 'numeric',
   minute: 'numeric',
-  hour12: false,
+  // hour12: false,
 })
 const time = $computed(() => dateFormatter.format(nowTime.value))
 </script>
 
 <template>
-  <div flex gap2 py1>
-    <div text="xl" w-8 ma>
+  <div flex gap2 py1 flex-wrap>
+    <div text="l" w-6 ma>
       {{ offset }}
     </div>
-    <div flex="col" text-left flex-auto>
-      <div text-xl>
+    <div flex="col" text-left flex-auto w-20>
+      <div text-l>
         {{ city }}
         <sup border="~ base rounded" text-sm px1>{{ timezone.abbr }}</sup>
       </div>
@@ -38,8 +37,9 @@ const time = $computed(() => dateFormatter.format(nowTime.value))
         {{ state }}
       </div>
     </div>
-    <div text="xl" ma tabular-nums>
+    <div text="l" ma tabular-nums>
       {{ time }}
     </div>
+    <slot />
   </div>
 </template>

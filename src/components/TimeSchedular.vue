@@ -16,7 +16,9 @@ function onDown(idx: number) {
       v-for="zone, idx of zoneSelected.value" :key="zone.name"
       px4 py2 border="b base rounded" relative
     >
-      <TimeZoneItem :timezone="zone" />
+      <TimeZoneItem :timezone="zone">
+        <TimeDial :timezone="zone" />
+      </TimeZoneItem>
       <div
         absolute left="-35px" top-2
         text-l flex="~ col" justify-center items-center
