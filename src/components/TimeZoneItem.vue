@@ -27,10 +27,18 @@ const time = $computed(() => dateFormatter.format(nowTime.value))
 </script>
 
 <template>
-  <div flex gap2 py1 flex-wrap text-right>
-    <div text="l" w-6 ma :title="timezone.offset > 0 ? `+${timezone.offset} GMT` : `${timezone.offset} GMT`">
+  <div flex gap2 py1 flex-wrap text-center>
+    <div
+      v-if="offset !== '0'"
+      text="l" w-6 ma
+      :class="[
+        offset.startsWith('+') ? 'text-green' : 'text-red',
+      ]"
+      :title="timezone.offset > 0 ? `+${timezone.offset} GMT` : `${timezone.offset} GMT`"
+    >
       {{ offset }}
     </div>
+    <div v-else i-carbon-home text="blue900 xl" />
     <div flex="col" text-left flex-auto w-20>
       <div text-l>
         {{ city }}

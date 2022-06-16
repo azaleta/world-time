@@ -8,6 +8,9 @@ function onUp(idx: number) {
 function onDown(idx: number) {
   sortZone(idx, 1)
 }
+function onSetDefault(idx: number) {
+  setDefaultTimezone(idx)
+}
 </script>
 
 <template>
@@ -24,8 +27,14 @@ function onDown(idx: number) {
         text-l flex="~ col" justify-center items-center
       >
         <button
-          button-base i-carbon-close-outline
+          v-if="zone.name !== defaultTimeZone.value" button-base
+          i-carbon-close-outline
           @click="onDelete(idx)"
+        />
+        <button
+          v-if="zone.name !== defaultTimeZone.value" button-base
+          i-carbon-home
+          @click="onSetDefault(idx)"
         />
         <button
           v-if="idx > 0"
