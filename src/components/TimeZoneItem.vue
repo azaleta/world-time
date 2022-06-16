@@ -12,7 +12,10 @@ const city = $computed(() => {
   return timezone.name.split('/')[1].replace(/_/g, ' ')
 })
 
-const offset = $computed(() => timezone.offset > 0 ? `+${timezone.offset}` : timezone.offset)
+const offset = $computed(() => {
+  const offset = timezone.offset - currentOffset.value
+  return offset > 0 ? `+${offset}` : `${offset}`
+})
 
 const dateFormatter = Intl.DateTimeFormat('en-US', {
   timeZone: timezone.name,
@@ -24,8 +27,8 @@ const time = $computed(() => dateFormatter.format(nowTime.value))
 </script>
 
 <template>
-  <div flex gap2 py1 flex-wrap>
-    <div text="l" w-6 ma>
+  <div flex gap2 py1 flex-wrap text-right>
+    <div text="l" w-6 ma :title="timezone.offset > 0 ? `+${timezone.offset} GMT` : `${timezone.offset} GMT`">
       {{ offset }}
     </div>
     <div flex="col" text-left flex-auto w-20>
