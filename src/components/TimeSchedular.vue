@@ -14,12 +14,12 @@ function onSetDefault(idx: number) {
 </script>
 
 <template>
-  <div>
+  <div of-x-auto relative>
     <div
       v-for="zone, idx of zoneSelected.value" :key="zone.name"
-      px4 py2 border="b base rounded" relative
+      px4 py2 border="b base" relative
     >
-      <TimeZoneItem :timezone="zone">
+      <TimeZoneItem :timezone="zone" w-max>
         <TimeDial :timezone="zone" />
       </TimeZoneItem>
       <div
@@ -48,5 +48,6 @@ function onSetDefault(idx: number) {
         />
       </div>
     </div>
+    <SelectionOverlay absolute inset-0 />
   </div>
 </template>

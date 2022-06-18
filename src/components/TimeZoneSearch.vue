@@ -10,9 +10,18 @@ const searchResult = $computed(() => {
   return searchZone(inputZone)
 })
 
+const htmlElement = ref<HTMLDivElement>()
+onClickOutside(htmlElement, () => {
+  if (inputZone) {
+    inputZone = ''
+    index = 0
+  }
+})
+
 function add(t: TimeZone) {
   addZone(t)
   inputZone = ''
+  index = 0
 }
 
 function onKeyDown(e: KeyboardEvent) {
@@ -42,9 +51,10 @@ function onMouseOver(i: number) {
     >
     <div
       v-show="inputZone"
-      absolute top-full left-0 right-0
-      border="~ base rounded" bg-base shadow
-      max-h-60 overflow-y-auto z-99
+      ref="htmlElement" absolute top-full left-0
+      right-0 border="~ base rounded" bg-base
+      shadow max-h-60 overflow-y-auto
+      z-99
     >
       <button
         v-for="fzone, idx in searchResult" :key="fzone.refIndex"

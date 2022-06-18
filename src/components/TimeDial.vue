@@ -57,7 +57,7 @@ function isNight(hr: string) {
 </script>
 
 <template>
-  <div flex="~ gap-1" of-auto items-center justify-center>
+  <div flex="~ gap-1" of-auto items-center justify-center select-none>
     <div v-for="day, i in days" :key="i" flex="~" border="~ sky7/30 rounded-1.5" of-hidden>
       <div
         v-for="hour, idx in day" :key="idx"

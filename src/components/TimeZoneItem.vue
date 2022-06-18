@@ -27,10 +27,10 @@ const time = $computed(() => dateFormatter.format(nowTime.value))
 </script>
 
 <template>
-  <div flex gap2 py1 flex-wrap text-center>
+  <div gap2 py1 text-center flex="~ wrap">
     <div
       v-if="offset !== '0'"
-      text="l" w-6 ma
+      text="l left" w-8
       :class="[
         offset.startsWith('+') ? 'text-green' : 'text-red',
       ]"
@@ -38,8 +38,8 @@ const time = $computed(() => dateFormatter.format(nowTime.value))
     >
       {{ offset }}
     </div>
-    <div v-else i-carbon-home text="blue900 xl" />
-    <div flex="col" text-left flex-auto w-20>
+    <div v-else i-carbon-home text="blue900 xl" op80 w-8 />
+    <div flex="col" text-left flex-auto w-30>
       <div text-l>
         {{ city }}
         <sup border="~ base rounded" text-sm px1>{{ timezone.abbr }}</sup>
@@ -48,7 +48,7 @@ const time = $computed(() => dateFormatter.format(nowTime.value))
         {{ state }}
       </div>
     </div>
-    <div text="l" ma tabular-nums>
+    <div text="l center" ma tabular-nums w-25>
       {{ time }}
     </div>
     <slot />
